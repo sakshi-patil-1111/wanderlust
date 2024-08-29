@@ -65,10 +65,6 @@ app.listen(8080, () => {
   console.log("app listening at port 8080");
 });
 
-app.get("/", (req, res) => {
-  res.send("root");
-});
-
 app.use((req, res, next) => {
   res.locals.success = req.flash("success");
   res.locals.error = req.flash("error");

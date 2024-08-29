@@ -120,6 +120,7 @@
 
     <% } %>
 
+    <% if(listing.reviews.length>0) {%>
     <p><b>All Reviews</b></p>
     <div class="row">
       <% for(review of listing.reviews) {%>
@@ -146,5 +147,16 @@
       </div>
       <% } %>
     </div>
+    <% } %>
   </div>
+  <div class="col-8 mb-3 offset-3">
+    <h3 class="offset-3">Where you'll be</h3>
+    <div id="map" class="map"></div>
+  </div>
+  <script>
+    let mapToken="<%= process.env.TOMTOM_MAP_KEY %>";
+    let userInput = "<%= listing.location %>";
+  </script>
+  <script src="https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.2.0/maps/maps-web.min.js"></script>
+  <script type="module" src="/js/map.js"></script>
 </body>
